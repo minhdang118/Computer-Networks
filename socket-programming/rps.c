@@ -253,7 +253,7 @@ int client(const char *player, int port)
         exit(EXIT_FAILURE);
     }
 
-    fprintf(stdout, "\nWaiting for %s's move...\n", buffer);
+    fprintf(stdout, "\nWaiting for %s's move...\n", ser_name);
 
     /* Reading server player's move */
     memset(buffer, 0, sizeof(buffer));
@@ -270,6 +270,7 @@ int client(const char *player, int port)
 
     /* Closing socket*/
     close(client_fd);
+    shutdown(client_fd, SHUT_RDWR);
 
     return 0;
 }
