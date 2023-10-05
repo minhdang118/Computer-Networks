@@ -116,7 +116,7 @@ int server(const char *player, int port)
     /* Accepting client connection */
     if ((client_fd = accept(server_fd, (struct sockaddr *) &addr, (socklen_t *) &addr_len)) < 0)
     {
-        perror("Server sccepting failed");
+        perror("Server accepting failed");
         exit(EXIT_FAILURE);
     }
 
@@ -230,22 +230,10 @@ int client(const char *player, int port)
     strcpy(ser_name, buffer);
 
     fprintf(stdout, "\nPlayer %s just connected from server.\n", buffer);
-    fprintf(stdout, "\nThe game starts now!\n");
-    fprintf(stdout, "\nWaiting for %s's move...\n", buffer);
-
-    /* Reading server player's move */
-    memset(buffer, 0, sizeof(buffer));
-    if (read(client_fd, buffer, 1024) < 0)
-    {
-        perror("Client reading failed");
-        exit(EXIT_FAILURE);
-    }
-    strcpy(ser_move, buffer);
-    fprintf(stdout, "\nPlayer %s has moved.\n", ser_name);
 
     /* Prompting client player for their move */
     memset(buffer, 0, sizeof(buffer));
-    fprintf(stdout, "\nr for rock\np for paper\ns for scissors\n");
+    fprintf(stdout, "\nThe game starts now!\n\nr for rock\np for paper\ns for scissors\n");
     fprintf(stdout, "\nPlayer %s, please enter your move: ", player);
     scanf("%s", buffer);
 
@@ -264,6 +252,18 @@ int client(const char *player, int port)
         perror("Client sending failed");
         exit(EXIT_FAILURE);
     }
+
+    fprintf(stdout, "\nWaiting for %s's move...\n", buffer);
+
+    /* Reading server player's move */
+    memset(buffer, 0, sizeof(buffer));
+    if (read(client_fd, buffer, 1024) < 0)
+    {
+        perror("Client reading failed");
+        exit(EXIT_FAILURE);
+    }
+    strcpy(ser_move, buffer);
+    fprintf(stdout, "\nPlayer %s has moved.\n", ser_name);
 
     /* Printing results */
     results(player, ser_name, cli_move, ser_move);
