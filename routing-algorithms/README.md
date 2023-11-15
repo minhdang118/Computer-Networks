@@ -1,6 +1,5 @@
-# CSC 457, Fall 2023, Prof. Read McFarland
-## Minh Dang, NetID: mdang2, URID: 31733007
-### Project 2 Submission
+# Computer-Networks
+## routing-algorithms
 
 Running Instructions
 1. Open Terminal and navigate to the project directory.
