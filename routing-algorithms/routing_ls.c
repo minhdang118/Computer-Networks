@@ -3,7 +3,8 @@
 #include <stdbool.h>
 #include <string.h>
 
-int linkstate(int num_routers, int num_links, int* link_arr[], const char* output_filename)
+/* Link-State algorithm */
+int link_state(int num_routers, int num_links, int* link_arr[], const char* output_filename)
 {
     /* Open and write to output file */
     FILE* outp_ptr;
@@ -195,8 +196,8 @@ int main(int argc, char const *argv[])
         
         fclose(inp_ptr);
 
-        /* Run Link-State algorithm */
-        linkstate(num_routers, num_links, link_arr, output_filename);
+        /* Run Link-State algorithm and print to output file*/
+        link_state(num_routers, num_links, link_arr, output_filename);
 
     }
     
