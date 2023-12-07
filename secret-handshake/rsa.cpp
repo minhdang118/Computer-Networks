@@ -6,9 +6,18 @@ using namespace std;
 /* Encryption Function */
 BigInt encrypt(BigInt m, BigInt e, BigInt n){
     BigInt c;
+    if (operator==(operator%(e, BigInt("2")), BigInt("0")))
+    {
+        return operator%(operator^(encrypt(m, operator/(e, BigInt("2")), n), BigInt("2")), n);
+    } 
+    else
+    {
+        return operator*(operator%(m, n), operator%(m, n));
+    }
+    
     
     c = operator^(m, e);
-    c = operator%=(c, n);
+    c = operator%(c, n);
     return c;
 }
 
