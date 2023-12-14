@@ -3,24 +3,34 @@
 
 using namespace std;
 
-/* Encryption Function */
-BigInt &encrypt(BigInt m, BigInt e, BigInt n){
-    BigInt c;
+/* Encryption and Decryption Function */
+BigInt &encrypt(BigInt &m, BigInt &e, BigInt &n){
+    BigInt &temp = m;
+    BigInt &result = m;
     BigInt zero("0");
+    BigInt one("1");
     BigInt two("2");
 
-    if (e % two == zero)
+    if (e == one)
     {
-        /* code */
+        m %= n;
+        return m;
     }
-    
-    
-    return operator%=(operator^=(m, e), n);
-}
-
-/* Decryption Function */
-BigInt &decrypt(BigInt c, BigInt d, BigInt n){
-    return operator%=(operator^=(c, d), n);
+    else if (e % two == zero)
+    {
+        e /= two;
+        temp = encrypt(m, e, n);
+        result = temp;
+        result *= temp;
+        result %= n;
+        return result;
+    } else {
+        e -= one;
+        temp = encrypt(m, e, n);
+        result *= temp;
+        result %= n;
+        return result;
+    }
 }
 
 /* Check if input string is number */
@@ -78,14 +88,11 @@ int main(int argc, char const *argv[])
 
     /* Encrypt */
     BigInt c = encrypt(m_bigint, e_bigint, n_bigint);
-
-    /* Decrypt */
-    BigInt m2 = decrypt(c, d_bigint, n_bigint);
-
-    /* Print results */
     cout << "\nYour encrypted message is: ";
     cout << c << "\n";
 
+    /* Decrypt */
+    BigInt m2 = encrypt(c, d_bigint, n_bigint);
     cout << "\nYour decrypted message is: ";
     cout << m2 << "\n";
 
