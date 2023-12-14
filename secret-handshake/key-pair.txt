@@ -1,0 +1,10 @@
+p = 7699
+q = 6133
+
+n = p * q = 47217967
+
+z = (p-1) * (q-1) = 47204136
+
+Pick e = 5, then 5 * d mod 47204136. We find that d = 37763309.
+
+So, our public key is (47217967, 5), our private key if (47217967, 37763309).
