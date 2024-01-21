@@ -1,0 +1,48 @@
+Router 0
+sending to 0, next hop is 0 with cost 0.
+sending to 1, next hop is 5 with cost 3.
+sending to 2, next hop is 2 with cost 5.
+sending to 3, next hop is 5 with cost 8.
+sending to 4, next hop is 5 with cost 5.
+sending to 5, next hop is 5 with cost 1.
+
+Router 1
+sending to 0, next hop is 5 with cost 3.
+sending to 1, next hop is 1 with cost 0.
+sending to 2, next hop is 4 with cost 5.
+sending to 3, next hop is 4 with cost 5.
+sending to 4, next hop is 4 with cost 2.
+sending to 5, next hop is 5 with cost 2.
+
+Router 2
+sending to 0, next hop is 0 with cost 5.
+sending to 1, next hop is 4 with cost 5.
+sending to 2, next hop is 2 with cost 0.
+sending to 3, next hop is 4 with cost 6.
+sending to 4, next hop is 4 with cost 3.
+sending to 5, next hop is 0 with cost 6.
+
+Router 3
+sending to 0, next hop is 4 with cost 8.
+sending to 1, next hop is 4 with cost 5.
+sending to 2, next hop is 4 with cost 6.
+sending to 3, next hop is 3 with cost 0.
+sending to 4, next hop is 4 with cost 3.
+sending to 5, next hop is 4 with cost 7.
+
+Router 4
+sending to 0, next hop is 1 with cost 5.
+sending to 1, next hop is 1 with cost 2.
+sending to 2, next hop is 2 with cost 3.
+sending to 3, next hop is 3 with cost 3.
+sending to 4, next hop is 4 with cost 0.
+sending to 5, next hop is 1 with cost 4.
+
+Router 5
+sending to 0, next hop is 0 with cost 1.
+sending to 1, next hop is 1 with cost 2.
+sending to 2, next hop is 0 with cost 6.
+sending to 3, next hop is 1 with cost 7.
+sending to 4, next hop is 1 with cost 4.
+sending to 5, next hop is 5 with cost 0.
+
